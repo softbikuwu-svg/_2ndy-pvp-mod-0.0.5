@@ -1,0 +1,9 @@
+Hit Color (цвет удара, виден через броню) — подключается отдельно, потому что использует
+внутренности рендера Minecraft, где у меня нет возможности проверить названия классов.
+
+1. Сначала убедись, что основная сборка (gradle build / GitHub Actions) прошла.
+2. Скопируй содержимое папки src/ из optional-hitcolor/ в src/ проекта (с сохранением путей).
+3. В module/ModuleManager.java добавь строку:   ALL.add(new HitColorModule());
+4. В src/main/resources/fabric.mod.json после строки "environment" добавь:
+       "mixins": ["secondy_client.mixins.json"],
+5. Собери снова. Если сборка упала — пришли мне лог, поправлю только этот модуль.
